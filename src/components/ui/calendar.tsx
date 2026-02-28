@@ -1,6 +1,3 @@
-
-export { Badge, badgeVariants }
-
 "use client"
 
 import * as React from "react"
