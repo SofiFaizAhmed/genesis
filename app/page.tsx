@@ -134,9 +134,13 @@ export default function Home() {
                 <div className="bg-gray-100 rounded-lg px-4 py-3">
                   <div className="flex items-center gap-2">
                     <div className="flex gap-1">
-                      <div className="w-2 h-2 bg-gray-400 rounded-full animate-bounce" style={{ animationDelay: "0ms" }}></div>
-                      <div className="w-2 h-2 bg-gray-400 rounded-full animate-bounce" style={{ animationDelay: "150ms" }}></div>
-                      <div className="w-2 h-2 bg-gray-400 rounded-full animate-bounce" style={{ animationDelay: "300ms" }}></div>
+                      {[0, 150, 300].map((delay, idx) => (
+                        <div
+                          key={idx}
+                          className="w-2 h-2 bg-gray-400 rounded-full animate-bounce"
+                          style={{ animationDelay: `${delay}ms` }}
+                        ></div>
+                      ))}
                     </div>
                     <span className="text-sm text-gray-600">Thinking...</span>
                   </div>

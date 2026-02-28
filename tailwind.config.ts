@@ -7,11 +7,7 @@ const config: Config = {
     "./app/**/*.{js,ts,jsx,tsx,mdx}",
   ],
   theme: {
-    extend: {
-      animation: {
-        'bounce': 'bounce 1s infinite',
-      },
-    },
+    extend: {},
   },
   plugins: [],
 };

@@ -18,11 +18,21 @@ export default function SourceLinks({ sources }: SourceLinksProps) {
       <p className="text-xs text-gray-500 mb-2 font-semibold">Sources:</p>
       <div className="flex flex-col gap-1">
         {sources.map((url, index) => {
-          // Extract page title from URL
-          const urlObj = new URL(url);
-          const title = urlObj.searchParams.get("curid")
-            ? `Wikipedia Page ${index + 1}`
-            : decodeURIComponent(urlObj.pathname.split("/wiki/")[1] || "").replace(/_/g, " ");
+          // Extract page title from URL with error handling
+          let title = `Wikipedia Page ${index + 1}`;
+          try {
+            const urlObj = new URL(url);
+            if (urlObj.searchParams.get("curid")) {
+              title = `Wikipedia Page ${index + 1}`;
+            } else {
+              const pathTitle = urlObj.pathname.split("/wiki/")[1];
+              if (pathTitle) {
+                title = decodeURIComponent(pathTitle).replace(/_/g, " ");
+              }
+            }
+          } catch (error) {
+            console.error("Error parsing URL:", error);
+          }
 
           return (
             <a
