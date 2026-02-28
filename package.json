@@ -16,7 +16,6 @@
   "keywords": [],
   "author": "",
   "license": "ISC",
-
   "bugs": {
     "url": "https://github.com/SofiFaizAhmed/genesis/issues"
   },
@@ -34,6 +33,6 @@
   "devDependencies": {
     "autoprefixer": "^10.4.27",
     "postcss": "^8.5.6",
-    "tailwindcss": "^4.2.1"
+    "tailwindcss": "^3.4.19"
   }
 }

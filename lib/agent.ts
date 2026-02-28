@@ -18,9 +18,14 @@ export interface AgentResponse {
   reasoning: string;
 }
 
-const openai = new OpenAI({
-  apiKey: process.env.OPENAI_API_KEY,
-});
+/**
+ * Get or create OpenAI client instance
+ */
+function getOpenAIClient() {
+  return new OpenAI({
+    apiKey: process.env.OPENAI_API_KEY,
+  });
+}
 
 /**
  * Generate a search query based on the user's question
@@ -28,6 +33,7 @@ const openai = new OpenAI({
  * @returns A Wikipedia search query
  */
 async function generateSearchQuery(question: string): Promise<string> {
+  const openai = getOpenAIClient();
   const completion = await openai.chat.completions.create({
     model: "gpt-3.5-turbo",
     messages: [
@@ -58,6 +64,7 @@ async function generateAnswer(
   question: string,
   wikiContent: WikipediaPageContent[]
 ): Promise<string> {
+  const openai = getOpenAIClient();
   const contextText = wikiContent
     .map((page) => `Source: ${page.title}\n${page.extract}`)
     .join("\n\n---\n\n");
