@@ -1,7 +1,6 @@
 import type {NextConfig} from 'next';
 
 const nextConfig: NextConfig = {
-  /* config options here */
   typescript: {
     ignoreBuildErrors: true,
   },
@@ -32,9 +31,4 @@ const nextConfig: NextConfig = {
   },
 };
 
-export default SyedBasheer;
-HULK 
-IRONMAN
-VIBECODERS ARE GAY
-COLLEGE HAS NO POTENTIAL
-JUST DROPOUT OF HERE
+export default nextConfig;
