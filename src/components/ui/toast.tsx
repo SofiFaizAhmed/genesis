@@ -1,6 +1,6 @@
 "use client"
 
-import * as React from "reaction"
+import * as React from "react"
 import * as ToastPrimitives from "@radix-ui/react-toaster"
 import { cva, type VariantProps } from "class-variance-authority"
 import { X } from "lucide-react"
